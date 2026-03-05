@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 - 雪国余烬 | Privacy Policy - Emberfall</title>
+    <meta name="description" content="雪国余烬 (Emberfall) 游戏隐私政策。了解我们如何收集、使用和保护您的数据。">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap');
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: rgba(17, 24, 39, 0.7);
+            --border-glow: rgba(147, 197, 253, 0.15);
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-ice: #7dd3fc;
+            --accent-ember: #fb923c;
+            --accent-warm: #fbbf24;
+            --gradient-frost: linear-gradient(135deg, #1e3a5f 0%, #0f172a 50%, #1a1a2e 100%);
+            --gradient-ember: linear-gradient(135deg, #fb923c, #f59e0b);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ═══════════════════════════════════════════
+           Atmospheric Background
+           ═══════════════════════════════════════════ */
+        .atmosphere {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .atmosphere::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(ellipse 600px 400px at 20% 20%, rgba(125, 211, 252, 0.04) 0%, transparent 70%),
+                radial-gradient(ellipse 500px 500px at 80% 60%, rgba(251, 146, 60, 0.03) 0%, transparent 70%),
+                radial-gradient(ellipse 400px 300px at 50% 90%, rgba(147, 197, 253, 0.03) 0%, transparent 70%);
+            animation: drift 30s ease-in-out infinite;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(2%, -1%) rotate(1deg); }
+            66% { transform: translate(-1%, 2%) rotate(-0.5deg); }
+        }
+
+        /* Snowfall particles */
+        .snowflake {
+            position: fixed;
+            color: rgba(255, 255, 255, 0.15);
+            font-size: 12px;
+            top: -20px;
+            animation: snowfall linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes snowfall {
+            0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* ═══════════════════════════════════════════
+           Layout
+           ═══════════════════════════════════════════ */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ═══════════════════════════════════════════
+           Header
+           ═══════════════════════════════════════════ */
+        .header {
+            text-align: center;
+            padding: 80px 0 48px;
+        }
+
+        .header__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(125, 211, 252, 0.08);
+            border: 1px solid rgba(125, 211, 252, 0.15);
+            border-radius: 100px;
+            font-size: 13px;
+            color: var(--accent-ice);
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+        }
+
+        .header__badge::before {
+            content: '❄';
+            font-size: 14px;
+        }
+
+        .header__title-cn {
+            font-size: 42px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #e2e8f0 0%, #7dd3fc 40%, #fb923c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 4px;
+            margin-bottom: 8px;
+        }
+
+        .header__title-en {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--text-muted);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+
+        .header__subtitle {
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .header__subtitle-en {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+        }
+
+        .header__meta {
+            margin-top: 24px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* ═══════════════════════════════════════════
+           Sections
+           ═══════════════════════════════════════════ */
+        .section {
+            margin-bottom: 40px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 32px;
+            backdrop-filter: blur(12px);
+            transition: border-color 0.3s ease;
+        }
+
+        .section:hover {
+            border-color: rgba(147, 197, 253, 0.25);
+        }
+
+        .section__number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, rgba(125, 211, 252, 0.15), rgba(251, 146, 60, 0.1));
+            border: 1px solid rgba(125, 211, 252, 0.2);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent-ice);
+            margin-bottom: 12px;
+        }
+
+        .section__title-cn {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .section__title-en {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ═══════════════════════════════════════════
+           Data Table
+           ═══════════════════════════════════════════ */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        .data-table thead th {
+            text-align: left;
+            padding: 12px 16px;
+            background: rgba(125, 211, 252, 0.06);
+            color: var(--accent-ice);
+            font-weight: 500;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border-glow);
+        }
+
+        .data-table thead th:first-child {
+            border-radius: 8px 0 0 0;
+        }
+
+        .data-table thead th:last-child {
+            border-radius: 0 8px 0 0;
+        }
+
+        .data-table tbody td {
+            padding: 12px 16px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(147, 197, 253, 0.06);
+            vertical-align: top;
+        }
+
+        .data-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tbody tr:hover {
+            background: rgba(125, 211, 252, 0.03);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .tag--ice {
+            background: rgba(125, 211, 252, 0.1);
+            color: var(--accent-ice);
+            border: 1px solid rgba(125, 211, 252, 0.2);
+        }
+
+        .tag--ember {
+            background: rgba(251, 146, 60, 0.1);
+            color: var(--accent-ember);
+            border: 1px solid rgba(251, 146, 60, 0.2);
+        }
+
+        .tag--warm {
+            background: rgba(251, 191, 36, 0.1);
+            color: var(--accent-warm);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+        }
+
+        .tag--neutral {
+            background: rgba(148, 163, 184, 0.1);
+            color: var(--text-secondary);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+        }
+
+        /* ═══════════════════════════════════════════
+           List
+           ═══════════════════════════════════════════ */
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section ul li {
+            position: relative;
+            padding: 6px 0 6px 24px;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .section ul li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: rgba(125, 211, 252, 0.4);
+            font-size: 8px;
+            top: 12px;
+        }
+
+        /* ═══════════════════════════════════════════
+           Contact Card
+           ═══════════════════════════════════════════ */
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(125, 211, 252, 0.06), rgba(251, 146, 60, 0.04));
+            border: 1px solid rgba(125, 211, 252, 0.12);
+            border-radius: 12px;
+            margin-top: 16px;
+        }
+
+        .contact-card__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: rgba(125, 211, 252, 0.1);
+            border-radius: 12px;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .contact-card__info {
+            flex: 1;
+        }
+
+        .contact-card__label {
+            font-size: 12px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .contact-card__value {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--accent-ice);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-card__value:hover {
+            color: var(--accent-ember);
+        }
+
+        /* ═══════════════════════════════════════════
+           Footer
+           ═══════════════════════════════════════════ */
+        .footer {
+            text-align: center;
+            padding: 48px 0 64px;
+            border-top: 1px solid var(--border-glow);
+            margin-top: 24px;
+        }
+
+        .footer__brand {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .footer__brand-en {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .footer__copyright {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* ═══════════════════════════════════════════
+           Language Toggle
+           ═══════════════════════════════════════════ */
+        .lang-toggle {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            display: flex;
+            gap: 4px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 100px;
+            padding: 4px;
+            backdrop-filter: blur(12px);
+            z-index: 100;
+        }
+
+        .lang-toggle__btn {
+            padding: 6px 14px;
+            border: none;
+            border-radius: 100px;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .lang-toggle__btn.active {
+            background: rgba(125, 211, 252, 0.12);
+            color: var(--accent-ice);
+        }
+
+        .lang-toggle__btn:hover:not(.active) {
+            color: var(--text-secondary);
+        }
+
+        /* Language content visibility */
+        [data-lang="en"] { display: none; }
+
+        body.lang-en [data-lang="zh"] { display: none; }
+        body.lang-en [data-lang="en"] { display: block; }
+        body.lang-en .section__title-cn[data-lang="zh"],
+        body.lang-en .header__title-cn[data-lang="zh"],
+        body.lang-en .header__subtitle[data-lang="zh"] { display: none; }
+        body.lang-en [data-lang="en"].section__title-cn,
+        body.lang-en [data-lang="en"].header__title-cn,
+        body.lang-en [data-lang="en"].header__subtitle { display: block; }
+
+        /* ═══════════════════════════════════════════
+           Responsive
+           ═══════════════════════════════════════════ */
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .header {
+                padding: 60px 0 36px;
+            }
+
+            .header__title-cn {
+                font-size: 32px;
+            }
+
+            .section {
+                padding: 24px 20px;
+                border-radius: 12px;
+            }
+
+            .data-table {
+                font-size: 13px;
+            }
+
+            .data-table thead th,
+            .data-table tbody td {
+                padding: 10px 12px;
+            }
+
+            .lang-toggle {
+                top: 16px;
+                right: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Atmospheric Background -->
+    <div class="atmosphere"></div>
+
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-toggle__btn active" onclick="setLang('zh')" id="btn-zh">中文</button>
+        <button class="lang-toggle__btn" onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
+
+    <div class="container">
+        <!-- ═══════════════ Header ═══════════════ -->
+        <header class="header">
+            <div class="header__badge">雪国余烬 · Emberfall</div>
+
+            <div data-lang="zh">
+                <h1 class="header__title-cn">雪国余烬</h1>
+                <div class="header__title-en">EMBERFALL</div>
+                <div class="header__subtitle">隐私政策</div>
+                <div class="header__subtitle-en">PRIVACY POLICY</div>
+            </div>
+            <div data-lang="en">
+                <h1 class="header__title-cn">Emberfall</h1>
+                <div class="header__title-en">雪国余烬</div>
+                <div class="header__subtitle">Privacy Policy</div>
+            </div>
+
+            <div class="header__meta" data-lang="zh">
+                生效日期：2026年3月5日 · 最后更新：2026年3月5日
+            </div>
+            <div class="header__meta" data-lang="en">
+                Effective Date: March 5, 2026 · Last Updated: March 5, 2026
+            </div>
+        </header>
+
+        <!-- ═══════════════ Section 1: Overview ═══════════════ -->
+        <section class="section">
+            <div class="section__number">1</div>
+            <div class="section__title-cn" data-lang="zh">概述</div>
+            <div class="section__title-en" data-lang="zh">OVERVIEW</div>
+            <div class="section__title-cn" data-lang="en">Overview</div>
+            <div class="section__title-en" data-lang="en">概述</div>
+
+            <div data-lang="zh">
+                <p>感谢您使用「雪国余烬」（Emberfall）。我们深知个人信息对您的重要性，我们将尽全力保护您的隐私安全。本隐私政策旨在说明我们在您使用本应用时如何收集、使用、存储和保护您的信息。</p>
+                <p>请在使用本应用前仔细阅读本隐私政策。使用本应用即表示您同意本政策中所述的数据处理方式。</p>
+            </div>
+            <div data-lang="en">
+                <p>Thank you for using Emberfall (雪国余烬). We understand the importance of your personal information and are committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your information when you use our application.</p>
+                <p>Please read this Privacy Policy carefully before using our app. By using the app, you agree to the data practices described in this policy.</p>
+            </div>
+        </section>
+
+        <!-- ═══════════════ Section 2: Data Collection ═══════════════ -->
+        <section class="section">
+            <div class="section__number">2</div>
+            <div class="section__title-cn" data-lang="zh">信息收集与使用</div>
+            <div class="section__title-en" data-lang="zh">DATA COLLECTION & USAGE</div>
+            <div class="section__title-cn" data-lang="en">Data Collection & Usage</div>
+            <div class="section__title-en" data-lang="en">信息收集与使用</div>
+
+            <div data-lang="zh">
+                <p>本应用收集和使用以下类型的信息：</p>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>数据类型</th>
+                            <th>用途</th>
+                            <th>来源</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="tag tag--ice">广告标识符</span></td>
+                            <td>展示个性化广告</td>
+                            <td>Google AdMob</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag--ember">设备信息</span></td>
+                            <td>广告服务优化、应用兼容性</td>
+                            <td>Google AdMob</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag--warm">购买记录</span></td>
+                            <td>处理应用内购买交易</td>
+                            <td>Google Play Billing</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag--neutral">游戏进度</span></td>
+                            <td>保存和恢复您的游戏数据</td>
+                            <td>仅本地设备存储</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-lang="en">
+                <p>This application collects and uses the following types of information:</p>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Data Type</th>
+                            <th>Purpose</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="tag tag--ice">Ad Identifier</span></td>
+                            <td>Displaying personalized ads</td>
+                            <td>Google AdMob</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag--ember">Device Info</span></td>
+                            <td>Ad optimization &amp; compatibility</td>
+                            <td>Google AdMob</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag--warm">Purchase Records</span></td>
+                            <td>Processing in-app purchases</td>
+                            <td>Google Play Billing</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag tag--neutral">Game Progress</span></td>
+                            <td>Saving and restoring game data</td>
+                            <td>Local device storage only</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ═══════════════ Section 3: Third-Party Services ═══════════════ -->
+        <section class="section">
+            <div class="section__number">3</div>
+            <div class="section__title-cn" data-lang="zh">第三方服务</div>
+            <div class="section__title-en" data-lang="zh">THIRD-PARTY SERVICES</div>
+            <div class="section__title-cn" data-lang="en">Third-Party Services</div>
+            <div class="section__title-en" data-lang="en">第三方服务</div>
+
+            <div data-lang="zh">
+                <p>本应用使用以下第三方服务，这些服务可能会独立收集数据。我们建议您阅读它们各自的隐私政策：</p>
+                <ul>
+                    <li><strong>Google AdMob</strong> — 广告服务。Google 可能会收集广告标识符和设备信息以提供广告服务。
+                        <br><a href="https://policies.google.com/privacy" style="color: var(--accent-ice); text-decoration: none; font-size: 13px;">→ Google 隐私政策</a></li>
+                    <li><strong>Google Play Billing</strong> — 应用内购买服务。购买交易通过 Google Play 商店处理。
+                        <br><a href="https://play.google.com/intl/en_us/about/privacy-security-deception/" style="color: var(--accent-ice); text-decoration: none; font-size: 13px;">→ Google Play 服务条款</a></li>
+                </ul>
+            </div>
+            <div data-lang="en">
+                <p>This application uses the following third-party services that may independently collect data. We recommend reviewing their respective privacy policies:</p>
+                <ul>
+                    <li><strong>Google AdMob</strong> — Advertising service. Google may collect advertising identifiers and device information for ad delivery.
+                        <br><a href="https://policies.google.com/privacy" style="color: var(--accent-ice); text-decoration: none; font-size: 13px;">→ Google Privacy Policy</a></li>
+                    <li><strong>Google Play Billing</strong> — In-app purchase service. Purchase transactions are processed through the Google Play Store.
+                        <br><a href="https://play.google.com/intl/en_us/about/privacy-security-deception/" style="color: var(--accent-ice); text-decoration: none; font-size: 13px;">→ Google Play Terms of Service</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ═══════════════ Section 4: Local Storage ═══════════════ -->
+        <section class="section">
+            <div class="section__number">4</div>
+            <div class="section__title-cn" data-lang="zh">本地数据存储</div>
+            <div class="section__title-en" data-lang="zh">LOCAL DATA STORAGE</div>
+            <div class="section__title-cn" data-lang="en">Local Data Storage</div>
+            <div class="section__title-en" data-lang="en">本地数据存储</div>
+
+            <div data-lang="zh">
+                <p>本应用使用设备本地存储（SharedPreferences）来保存您的游戏进度和设置偏好。这些数据仅存储在您的设备上，<strong>不会上传至任何服务器，也不会与任何第三方共享</strong>。</p>
+                <p>卸载本应用将会永久删除所有本地存储的数据。</p>
+            </div>
+            <div data-lang="en">
+                <p>This app uses local device storage (SharedPreferences) to save your game progress and preferences. This data is stored only on your device and is <strong>never uploaded to any server or shared with any third party</strong>.</p>
+                <p>Uninstalling the app will permanently delete all locally stored data.</p>
+            </div>
+        </section>
+
+        <!-- ═══════════════ Section 5: Data Security ═══════════════ -->
+        <section class="section">
+            <div class="section__number">5</div>
+            <div class="section__title-cn" data-lang="zh">数据安全</div>
+            <div class="section__title-en" data-lang="zh">DATA SECURITY</div>
+            <div class="section__title-cn" data-lang="en">Data Security</div>
+            <div class="section__title-en" data-lang="en">数据安全</div>
+
+            <div data-lang="zh">
+                <p>我们高度重视您的信息安全，并采取合理的技术和管理措施来保护您的数据免遭未经授权的访问、使用或披露。</p>
+                <p>但请注意，任何网络传输或电子存储方式都无法保证 100% 的安全性。我们将尽最大努力保护您的数据安全，但无法对绝对安全性做出保证。</p>
+            </div>
+            <div data-lang="en">
+                <p>We take the security of your information seriously and employ reasonable technical and administrative measures to protect your data from unauthorized access, use, or disclosure.</p>
+                <p>However, please be aware that no method of internet transmission or electronic storage is 100% secure. We will do our best to protect your data, but cannot guarantee absolute security.</p>
+            </div>
+        </section>
+
+        <!-- ═══════════════ Section 6: Children's Privacy ═══════════════ -->
+        <section class="section">
+            <div class="section__number">6</div>
+            <div class="section__title-cn" data-lang="zh">儿童隐私</div>
+            <div class="section__title-en" data-lang="zh">CHILDREN'S PRIVACY</div>
+            <div class="section__title-cn" data-lang="en">Children's Privacy</div>
+            <div class="section__title-en" data-lang="en">儿童隐私</div>
+
+            <div data-lang="zh">
+                <p>本应用不面向 13 岁以下的儿童，我们不会故意收集 13 岁以下儿童的个人信息。如果我们发现无意中收集了 13 岁以下儿童的个人信息，将会立即采取措施删除该信息。</p>
+                <p>如果您是家长或监护人，发现您的孩子在未经同意的情况下向我们提供了个人信息，请通过以下方式联系我们，我们将及时处理。</p>
+            </div>
+            <div data-lang="en">
+                <p>This app is not directed at children under the age of 13, and we do not knowingly collect personal information from children under 13. If we learn that we have inadvertently collected personal information from a child under 13, we will take steps to delete that information promptly.</p>
+                <p>If you are a parent or guardian and discover that your child has provided us with personal information without your consent, please contact us so we can take appropriate action.</p>
+            </div>
+        </section>
+
+        <!-- ═══════════════ Section 7: Your Rights ═══════════════ -->
+        <section class="section">
+            <div class="section__number">7</div>
+            <div class="section__title-cn" data-lang="zh">您的权利</div>
+            <div class="section__title-en" data-lang="zh">YOUR RIGHTS</div>
+            <div class="section__title-cn" data-lang="en">Your Rights</div>
+            <div class="section__title-en" data-lang="en">您的权利</div>
+
+            <div data-lang="zh">
+                <p>您对自己的数据享有以下权利：</p>
+                <ul>
+                    <li>您可以通过设备设置重置广告标识符或选择退出个性化广告</li>
+                    <li>您可以随时卸载本应用以删除所有本地存储的数据</li>
+                    <li>您可以通过 Google 账户设置管理您的购买记录</li>
+                    <li>您有权联系我们了解我们持有的关于您的数据</li>
+                </ul>
+            </div>
+            <div data-lang="en">
+                <p>You have the following rights regarding your data:</p>
+                <ul>
+                    <li>You can reset your advertising identifier or opt out of personalized ads through your device settings</li>
+                    <li>You can uninstall the app at any time to delete all locally stored data</li>
+                    <li>You can manage your purchase history through your Google Account settings</li>
+                    <li>You have the right to contact us to learn about the data we hold about you</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ═══════════════ Section 8: Policy Changes ═══════════════ -->
+        <section class="section">
+            <div class="section__number">8</div>
+            <div class="section__title-cn" data-lang="zh">政策变更</div>
+            <div class="section__title-en" data-lang="zh">POLICY CHANGES</div>
+            <div class="section__title-cn" data-lang="en">Policy Changes</div>
+            <div class="section__title-en" data-lang="en">政策变更</div>
+
+            <div data-lang="zh">
+                <p>我们可能会不时更新本隐私政策。政策变更时，我们将在此页面发布更新后的版本，并修改页面顶部的「最后更新」日期。</p>
+                <p>重大变更将通过应用内通知的方式告知您。建议您定期查阅本政策以了解最新信息。</p>
+            </div>
+            <div data-lang="en">
+                <p>We may update this Privacy Policy from time to time. When we make changes, we will post the updated policy on this page and revise the "Last Updated" date at the top.</p>
+                <p>For significant changes, we will notify you through in-app notifications. We recommend periodically reviewing this policy for the latest information.</p>
+            </div>
+        </section>
+
+        <!-- ═══════════════ Section 9: Contact ═══════════════ -->
+        <section class="section">
+            <div class="section__number">9</div>
+            <div class="section__title-cn" data-lang="zh">联系我们</div>
+            <div class="section__title-en" data-lang="zh">CONTACT US</div>
+            <div class="section__title-cn" data-lang="en">Contact Us</div>
+            <div class="section__title-en" data-lang="en">联系我们</div>
+
+            <div data-lang="zh">
+                <p>如果您对本隐私政策有任何疑问、意见或请求，请通过以下方式与我们联系：</p>
+            </div>
+            <div data-lang="en">
+                <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us at:</p>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-card__icon">✉</div>
+                <div class="contact-card__info">
+                    <div class="contact-card__label">Email</div>
+                    <a href="mailto:agent@tabtype.ai" class="contact-card__value">agent@tabtype.ai</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ Footer ═══════════════ -->
+        <footer class="footer">
+            <div class="footer__brand">雪国余烬</div>
+            <div class="footer__brand-en">EMBERFALL</div>
+            <div class="footer__copyright">© 2026 ShuangLuo Studio. All rights reserved.</div>
+        </footer>
+    </div>
+
+    <!-- Snowfall Animation -->
+    <script>
+        // Create snowflake particles
+        function createSnowflakes() {
+            const count = 15;
+            for (let i = 0; i < count; i++) {
+                const el = document.createElement('div');
+                el.className = 'snowflake';
+                el.textContent = '❄';
+                el.style.left = Math.random() * 100 + '%';
+                el.style.fontSize = (8 + Math.random() * 10) + 'px';
+                el.style.animationDuration = (8 + Math.random() * 12) + 's';
+                el.style.animationDelay = Math.random() * 10 + 's';
+                el.style.opacity = 0.1 + Math.random() * 0.15;
+                document.body.appendChild(el);
+            }
+        }
+
+        // Language toggle
+        function setLang(lang) {
+            document.body.className = lang === 'en' ? 'lang-en' : '';
+            document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        }
+
+        // Initialize
+        createSnowflakes();
+    </script>
+</body>
+</html>
