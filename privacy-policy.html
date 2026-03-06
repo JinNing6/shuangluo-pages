@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,9 +74,19 @@
         }
 
         @keyframes drift {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(2%, -1%) rotate(1deg); }
-            66% { transform: translate(-1%, 2%) rotate(-0.5deg); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(2%, -1%) rotate(1deg);
+            }
+
+            66% {
+                transform: translate(-1%, 2%) rotate(-0.5deg);
+            }
         }
 
         /* Snowfall particles */
@@ -90,10 +101,23 @@
         }
 
         @keyframes snowfall {
-            0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+            0% {
+                transform: translateY(-20px) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         /* ═══════════════════════════════════════════
@@ -455,16 +479,29 @@
         }
 
         /* Language content visibility */
-        [data-lang="en"] { display: none; }
+        [data-lang="en"] {
+            display: none;
+        }
 
-        body.lang-en [data-lang="zh"] { display: none; }
-        body.lang-en [data-lang="en"] { display: block; }
+        body.lang-en [data-lang="zh"] {
+            display: none;
+        }
+
+        body.lang-en [data-lang="en"] {
+            display: block;
+        }
+
         body.lang-en .section__title-cn[data-lang="zh"],
         body.lang-en .header__title-cn[data-lang="zh"],
-        body.lang-en .header__subtitle[data-lang="zh"] { display: none; }
+        body.lang-en .header__subtitle[data-lang="zh"] {
+            display: none;
+        }
+
         body.lang-en [data-lang="en"].section__title-cn,
         body.lang-en [data-lang="en"].header__title-cn,
-        body.lang-en [data-lang="en"].header__subtitle { display: block; }
+        body.lang-en [data-lang="en"].header__subtitle {
+            display: block;
+        }
 
         /* ═══════════════════════════════════════════
            Responsive
@@ -503,6 +540,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Atmospheric Background -->
     <div class="atmosphere"></div>
@@ -551,8 +589,11 @@
                 <p>请在使用本应用前仔细阅读本隐私政策。使用本应用即表示您同意本政策中所述的数据处理方式。</p>
             </div>
             <div data-lang="en">
-                <p>Thank you for using Emberfall (雪国余烬). We understand the importance of your personal information and are committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your information when you use our application.</p>
-                <p>Please read this Privacy Policy carefully before using our app. By using the app, you agree to the data practices described in this policy.</p>
+                <p>Thank you for using Emberfall (雪国余烬). We understand the importance of your personal information and
+                    are committed to protecting your privacy. This Privacy Policy explains how we collect, use, store,
+                    and protect your information when you use our application.</p>
+                <p>Please read this Privacy Policy carefully before using our app. By using the app, you agree to the
+                    data practices described in this policy.</p>
             </div>
         </section>
 
@@ -646,18 +687,32 @@
                 <p>本应用使用以下第三方服务，这些服务可能会独立收集数据。我们建议您阅读它们各自的隐私政策：</p>
                 <ul>
                     <li><strong>Google AdMob</strong> — 广告服务。Google 可能会收集广告标识符和设备信息以提供广告服务。
-                        <br><a href="https://policies.google.com/privacy" style="color: var(--accent-ice); text-decoration: none; font-size: 13px;">→ Google 隐私政策</a></li>
+                        <br><a href="https://policies.google.com/privacy"
+                            style="color: var(--accent-ice); text-decoration: none; font-size: 13px;">→ Google 隐私政策</a>
+                    </li>
                     <li><strong>Google Play Billing</strong> — 应用内购买服务。购买交易通过 Google Play 商店处理。
-                        <br><a href="https://play.google.com/intl/en_us/about/privacy-security-deception/" style="color: var(--accent-ice); text-decoration: none; font-size: 13px;">→ Google Play 服务条款</a></li>
+                        <br><a href="https://play.google.com/intl/en_us/about/privacy-security-deception/"
+                            style="color: var(--accent-ice); text-decoration: none; font-size: 13px;">→ Google Play
+                            服务条款</a>
+                    </li>
                 </ul>
             </div>
             <div data-lang="en">
-                <p>This application uses the following third-party services that may independently collect data. We recommend reviewing their respective privacy policies:</p>
+                <p>This application uses the following third-party services that may independently collect data. We
+                    recommend reviewing their respective privacy policies:</p>
                 <ul>
-                    <li><strong>Google AdMob</strong> — Advertising service. Google may collect advertising identifiers and device information for ad delivery.
-                        <br><a href="https://policies.google.com/privacy" style="color: var(--accent-ice); text-decoration: none; font-size: 13px;">→ Google Privacy Policy</a></li>
-                    <li><strong>Google Play Billing</strong> — In-app purchase service. Purchase transactions are processed through the Google Play Store.
-                        <br><a href="https://play.google.com/intl/en_us/about/privacy-security-deception/" style="color: var(--accent-ice); text-decoration: none; font-size: 13px;">→ Google Play Terms of Service</a></li>
+                    <li><strong>Google AdMob</strong> — Advertising service. Google may collect advertising identifiers
+                        and device information for ad delivery.
+                        <br><a href="https://policies.google.com/privacy"
+                            style="color: var(--accent-ice); text-decoration: none; font-size: 13px;">→ Google Privacy
+                            Policy</a>
+                    </li>
+                    <li><strong>Google Play Billing</strong> — In-app purchase service. Purchase transactions are
+                        processed through the Google Play Store.
+                        <br><a href="https://play.google.com/intl/en_us/about/privacy-security-deception/"
+                            style="color: var(--accent-ice); text-decoration: none; font-size: 13px;">→ Google Play
+                            Terms of Service</a>
+                    </li>
                 </ul>
             </div>
         </section>
@@ -671,11 +726,14 @@
             <div class="section__title-en" data-lang="en">本地数据存储</div>
 
             <div data-lang="zh">
-                <p>本应用使用设备本地存储（SharedPreferences）来保存您的游戏进度和设置偏好。这些数据仅存储在您的设备上，<strong>不会上传至任何服务器，也不会与任何第三方共享</strong>。</p>
+                <p>本应用使用设备本地存储（SharedPreferences）来保存您的游戏进度和设置偏好。这些数据仅存储在您的设备上，<strong>不会上传至任何服务器，也不会与任何第三方共享</strong>。
+                </p>
                 <p>卸载本应用将会永久删除所有本地存储的数据。</p>
             </div>
             <div data-lang="en">
-                <p>This app uses local device storage (SharedPreferences) to save your game progress and preferences. This data is stored only on your device and is <strong>never uploaded to any server or shared with any third party</strong>.</p>
+                <p>This app uses local device storage (SharedPreferences) to save your game progress and preferences.
+                    This data is stored only on your device and is <strong>never uploaded to any server or shared with
+                        any third party</strong>.</p>
                 <p>Uninstalling the app will permanently delete all locally stored data.</p>
             </div>
         </section>
@@ -693,8 +751,10 @@
                 <p>但请注意，任何网络传输或电子存储方式都无法保证 100% 的安全性。我们将尽最大努力保护您的数据安全，但无法对绝对安全性做出保证。</p>
             </div>
             <div data-lang="en">
-                <p>We take the security of your information seriously and employ reasonable technical and administrative measures to protect your data from unauthorized access, use, or disclosure.</p>
-                <p>However, please be aware that no method of internet transmission or electronic storage is 100% secure. We will do our best to protect your data, but cannot guarantee absolute security.</p>
+                <p>We take the security of your information seriously and employ reasonable technical and administrative
+                    measures to protect your data from unauthorized access, use, or disclosure.</p>
+                <p>However, please be aware that no method of internet transmission or electronic storage is 100%
+                    secure. We will do our best to protect your data, but cannot guarantee absolute security.</p>
             </div>
         </section>
 
@@ -711,8 +771,11 @@
                 <p>如果您是家长或监护人，发现您的孩子在未经同意的情况下向我们提供了个人信息，请通过以下方式联系我们，我们将及时处理。</p>
             </div>
             <div data-lang="en">
-                <p>This app is not directed at children under the age of 13, and we do not knowingly collect personal information from children under 13. If we learn that we have inadvertently collected personal information from a child under 13, we will take steps to delete that information promptly.</p>
-                <p>If you are a parent or guardian and discover that your child has provided us with personal information without your consent, please contact us so we can take appropriate action.</p>
+                <p>This app is not directed at children under the age of 13, and we do not knowingly collect personal
+                    information from children under 13. If we learn that we have inadvertently collected personal
+                    information from a child under 13, we will take steps to delete that information promptly.</p>
+                <p>If you are a parent or guardian and discover that your child has provided us with personal
+                    information without your consent, please contact us so we can take appropriate action.</p>
             </div>
         </section>
 
@@ -736,7 +799,8 @@
             <div data-lang="en">
                 <p>You have the following rights regarding your data:</p>
                 <ul>
-                    <li>You can reset your advertising identifier or opt out of personalized ads through your device settings</li>
+                    <li>You can reset your advertising identifier or opt out of personalized ads through your device
+                        settings</li>
                     <li>You can uninstall the app at any time to delete all locally stored data</li>
                     <li>You can manage your purchase history through your Google Account settings</li>
                     <li>You have the right to contact us to learn about the data we hold about you</li>
@@ -757,8 +821,10 @@
                 <p>重大变更将通过应用内通知的方式告知您。建议您定期查阅本政策以了解最新信息。</p>
             </div>
             <div data-lang="en">
-                <p>We may update this Privacy Policy from time to time. When we make changes, we will post the updated policy on this page and revise the "Last Updated" date at the top.</p>
-                <p>For significant changes, we will notify you through in-app notifications. We recommend periodically reviewing this policy for the latest information.</p>
+                <p>We may update this Privacy Policy from time to time. When we make changes, we will post the updated
+                    policy on this page and revise the "Last Updated" date at the top.</p>
+                <p>For significant changes, we will notify you through in-app notifications. We recommend periodically
+                    reviewing this policy for the latest information.</p>
             </div>
         </section>
 
@@ -774,14 +840,15 @@
                 <p>如果您对本隐私政策有任何疑问、意见或请求，请通过以下方式与我们联系：</p>
             </div>
             <div data-lang="en">
-                <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us at:</p>
+                <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us at:
+                </p>
             </div>
 
             <div class="contact-card">
                 <div class="contact-card__icon">✉</div>
                 <div class="contact-card__info">
                     <div class="contact-card__label">Email</div>
-                    <a href="mailto:agent@tabtype.ai" class="contact-card__value">agent@tabtype.ai</a>
+                    <a href="mailto:embersnows@163.com" class="contact-card__value">embersnows@163.com</a>
                 </div>
             </div>
         </section>
@@ -821,6 +888,14 @@
 
         // Initialize
         createSnowflakes();
+
+        // Auto-detect language from URL parameter (?lang=en)
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get('lang');
+        if (langParam === 'en') {
+            setLang('en');
+        }
     </script>
 </body>
+
 </html>
